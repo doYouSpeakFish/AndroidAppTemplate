@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.ui"
+    namespace = "com.example.data.user"
     compileSdk = 33
 
     defaultConfig {
@@ -35,21 +35,13 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0"
-    }
 }
 
 dependencies {
     implementation(libs.bundles.core.implementations)
-    implementation(libs.bundles.feature.implementations)
     kapt(libs.dagger.hilt.compiler)
     testImplementation(libs.bundles.core.test.implementations)
     androidTestImplementation(libs.bundles.core.android.test.implementations)
-    androidTestImplementation(libs.bundles.feature.android.test.implementations)
 }
 
 // Allow references to generated code

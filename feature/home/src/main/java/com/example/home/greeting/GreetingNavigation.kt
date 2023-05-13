@@ -13,6 +13,6 @@ fun NavController.navigateToGreeting(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.greetingScreen() {
     composable(GreetingRoute) {
-        Greeting("Android")
+        Greeting()
     }
 }

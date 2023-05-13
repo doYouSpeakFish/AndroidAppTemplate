@@ -36,7 +36,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
@@ -57,20 +57,18 @@ android {
 dependencies {
     implementation(project(":core:ui"))
     implementation(project(":feature:home"))
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.bundles.core.implementations)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.ui.core)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3.core)
     implementation(libs.androidx.compose.material3.window.size)
-    implementation(libs.dagger.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
-    implementation(libs.timber)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.viewModelCompose)
     implementation(libs.kotlin.stdlib)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.androidx.test.espresso.core)
+    testImplementation(libs.bundles.core.test.implementations)
+    androidTestImplementation(libs.bundles.core.android.test.implementations)
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

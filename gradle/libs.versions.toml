@@ -14,10 +14,14 @@ hiltPlugin = "2.44"
 hiltNavigation = "1.0.0"
 timber = "5.0.1"
 kotlinStdlib = "1.8.21"
+androidxNavigation = "2.5.3"
+androidxLifecycle = "2.6.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "ktx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "runtimeKtx" }
+androidx-lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "runtimeKtx" }
+androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-compose-ui-core = { group = "androidx.compose.ui", name = "ui", version.ref = "compose" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
@@ -25,6 +29,7 @@ androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose" }
 androidx-compose-material3-core = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 androidx-compose-material3-window-size = { group = "androidx.compose.material3", name = "material3-window-size-class", version.ref = "material3" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitExt" }
 androidx-test-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
@@ -36,24 +41,32 @@ timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "tim
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlinStdlib" }
 
 [bundles]
-feature-implementations = [
+core-implementations = [
     "androidx-core-ktx",
     "androidx-lifecycle-runtime-ktx",
+    "dagger-hilt-android",
+    "timber"
+]
+core-test-implementations = [
+    "junit"
+]
+core-android-test-implementations = [
+    "androidx-test-ext-junit",
+    "androidx-test-espresso-core",
+    "androidx-compose-ui-test-junit4"
+]
+feature-implementations = [
     "androidx-activity-compose",
     "androidx-compose-ui-core",
     "androidx-compose-ui-tooling-preview",
     "androidx-compose-material3-core",
     "androidx-compose-material3-window-size",
-    "dagger-hilt-android",
+    "androidx-navigation-compose",
     "androidx-hilt-navigation-compose",
-    "timber"
+    "androidx-lifecycle-runtime-compose",
+    "androidx-lifecycle-viewModelCompose"
 ]
-feature-test-implementations = [
-    "junit"
-]
-feature-android-test-implementation = [
-    "androidx-test-ext-junit",
-    "androidx-test-espresso-core",
+feature-android-test-implementations = [
     "androidx-compose-ui-test-junit4"
 ]
 

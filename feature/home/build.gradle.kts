@@ -4,6 +4,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt.android)
+    kotlin("kapt")
 }
 
 android {
@@ -31,7 +33,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
@@ -43,7 +45,16 @@ android {
 
 dependencies {
     implementation(project(":core:ui"))
+    implementation(project(":data:user"))
+    implementation(libs.bundles.core.implementations)
     implementation(libs.bundles.feature.implementations)
-    testImplementation(libs.bundles.feature.test.implementations)
-    androidTestImplementation(libs.bundles.feature.android.test.implementation)
+    kapt(libs.dagger.hilt.compiler)
+    testImplementation(libs.bundles.core.test.implementations)
+    androidTestImplementation(libs.bundles.core.android.test.implementations)
+    androidTestImplementation(libs.bundles.feature.android.test.implementations)
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
