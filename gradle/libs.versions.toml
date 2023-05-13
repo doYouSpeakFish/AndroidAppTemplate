@@ -35,6 +35,28 @@ androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navig
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8", version.ref = "kotlinStdlib" }
 
+[bundles]
+feature-implementations = [
+    "androidx-core-ktx",
+    "androidx-lifecycle-runtime-ktx",
+    "androidx-activity-compose",
+    "androidx-compose-ui-core",
+    "androidx-compose-ui-tooling-preview",
+    "androidx-compose-material3-core",
+    "androidx-compose-material3-window-size",
+    "dagger-hilt-android",
+    "androidx-hilt-navigation-compose",
+    "timber"
+]
+feature-test-implementations = [
+    "junit"
+]
+feature-android-test-implementation = [
+    "androidx-test-ext-junit",
+    "androidx-test-espresso-core",
+    "androidx-compose-ui-test-junit4"
+]
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
 android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
